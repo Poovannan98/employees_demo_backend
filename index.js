@@ -15,11 +15,11 @@ app.get('/', (request , response) => {
 
 //adding middleware
 app.use(express.json());
+// using cors
+app.use(cors());
 
 app.use('/api', employeeRoutes);
 
-// using cors
-app.use(cors());
 const PORT = process.env.PORT || 4000;
 
 app.listen(PORT, () => {
