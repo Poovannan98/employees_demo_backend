@@ -1,5 +1,6 @@
 require('dotenv').config();
 const express = require('express');
+var cors = require('cors');
 const db = require('./DB/connect');
 const employeeRoutes = require('./Routes/employees.routes');
 
@@ -16,7 +17,9 @@ app.get('/', (request , response) => {
 app.use(express.json());
 
 app.use('/api', employeeRoutes);
-// yet to update cors
+
+// using cors
+app.use(cors());
 
 const PORT = process.env.PORT || 4000;
 
